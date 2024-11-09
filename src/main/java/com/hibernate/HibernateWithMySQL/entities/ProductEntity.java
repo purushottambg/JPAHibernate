@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
 )
 @NoArgsConstructor
 @AllArgsConstructor
-public class Product {
+public class ProductEntity {
 
     @CreationTimestamp
     private LocalDateTime RegisteredAt;
