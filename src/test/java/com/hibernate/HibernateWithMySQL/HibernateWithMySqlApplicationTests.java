@@ -38,5 +38,5 @@ class HibernateWithMySqlApplicationTests {
 	void getRepository(){
 		List<ProductEntity>  entities = productRepository.findAll();
 		System.out.println(entities);
-	}//
+	}
 }
