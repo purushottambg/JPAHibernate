@@ -38,7 +38,7 @@ public class ProductEntity {
     private String productCat;
 
     @Column(nullable = false)
-    private int quantity;
+    private int quantity;  //Field name
 
     @Column(nullable = false)
     private String type;
