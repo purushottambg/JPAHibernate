@@ -25,7 +25,7 @@ import java.time.LocalDateTime;
 public class ProductEntity {
 
     @CreationTimestamp
-    private LocalDateTime RegisteredAt;
+    private LocalDateTime registeredAt;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

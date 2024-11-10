@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -38,5 +39,24 @@ class HibernateWithMySqlApplicationTests {
 	void getRepository(){
 		List<ProductEntity>  entities = productRepository.findAll();
 		System.out.println(entities);
+	}
+
+	@Test
+	void getRepo1(){
+		List<ProductEntity> titledEntities = productRepository.findByproductCat("Food");
+		System.out.println(titledEntities);
+	}
+
+	@Test
+	void findAfterDate(){
+		List<ProductEntity> findCreatedAfter=
+				productRepository.findByRegisteredAtAfter(LocalDateTime.of(2024, 11, 10, 0,0,0) );
+		System.out.println(findCreatedAfter);
+	}
+
+	@Test
+	void findByQuantityBetween(){
+		List<ProductEntity> quntityEntities = productRepository.findByQuantityBetween(1, 2200);
+		System.out.println("Found the below for quantity between "+quntityEntities);
 	}
 }
