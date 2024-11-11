@@ -2,11 +2,13 @@ package com.hibernate.HibernateWithMySQL.Repository;
 
 import com.hibernate.HibernateWithMySQL.entities.ProductEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
@@ -17,4 +19,7 @@ public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
     List<ProductEntity> findByQuantityBetween(int qty1, int qty2);
 
     List<ProductEntity> findByQuantityAndPrice(int qty, BigDecimal price);
+
+    @Query("select  e from ProductEntity e where e.productId=?1")
+    Optional<ProductEntity> findByproductId(Long pid);
 }

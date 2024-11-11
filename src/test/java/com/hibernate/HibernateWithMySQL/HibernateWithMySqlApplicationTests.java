@@ -69,6 +69,12 @@ class HibernateWithMySqlApplicationTests {
 	@Test
 	void findByID(){
 		Optional<ProductEntity> specificID = productRepository.findById(Long.valueOf(2));
-		specificID.ifPresent(System.out::println);
+		specificID.ifPresent(System.out::println);   //will check if present, and print if it presents
+	}
+
+	@Test
+	void findByproductId(){
+		Optional<ProductEntity> specificData = productRepository.findByproductId(Long.valueOf(23));
+		specificData.ifPresent(System.out::println);  //will check if present, and print if it presents
 	}
 }
