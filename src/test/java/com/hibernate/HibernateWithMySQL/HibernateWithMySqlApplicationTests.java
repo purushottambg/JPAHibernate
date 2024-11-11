@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 
 @SpringBootTest
@@ -58,5 +59,16 @@ class HibernateWithMySqlApplicationTests {
 	void findByQuantityBetween(){
 		List<ProductEntity> quntityEntities = productRepository.findByQuantityBetween(1, 2200);
 		System.out.println("Found the below for quantity between "+quntityEntities);
+	}
+
+	@Test
+	void findByqtyAndPrice(){
+		List<ProductEntity> qtyAndPrice = productRepository.findByQuantityAndPrice(2, BigDecimal.valueOf(2300.00));
+		System.out.println("Qty and Price: "+qtyAndPrice);
+	}
+	@Test
+	void findByID(){
+		Optional<ProductEntity> specificID = productRepository.findById(Long.valueOf(2));
+		specificID.ifPresent(System.out::println);
 	}
 }
