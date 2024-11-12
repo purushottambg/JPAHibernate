@@ -1,6 +1,6 @@
 insert into HibernateWithMYSQL.product_table
 (product_id, registered_at, last_update, price, prod_description, prod_name, product_cat, quantity, type) values
-(1, '2000-12-12', '2000-12-12', 23, 'Rice brand', 'Daawat', 'Food', 2200, 'Grocery'),
+(100, '2000-12-12', '2000-12-12', 23, 'Rice brand', 'Daawat', 'Food', 2200, 'Grocery'),
 (23, '2000-12-10', '2000-12-10', 450, 'Jaggery brand', 'RedTest', 'Sweet', 180, 'Grocery'),
 (2, '2000-12-10', '2000-12-10', 223, 'Mung Dal', 'Kissan', 'Pulse', 10, 'Grocery'),
 (3, '2000-12-10', '2000-12-10', 56, 'Soya Oil', 'Finary', 'Oil', 80, 'Grocery'),
