@@ -8,7 +8,7 @@ import org.hibernate.mapping.List;
 
 @Entity
 @Data
-@Table(name = "Department")
+@Table(name = "DepartmentTable")
 @AllArgsConstructor
 @NoArgsConstructor
 public class DepartmentEntity {
