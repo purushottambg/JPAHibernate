@@ -10,5 +10,4 @@ insert into HibernateWithMYSQL.product_table
 --(7, '2000-12-10', '2000-12-10', 90, 'chane', 'chne', 'pulse', 10, 'Grocery'),
 --(8, '2000-12-10', '2000-12-10', 457, 'Patti', 'Chai', 'Tea', 30, 'Grocery'),
 --(9, '2000-12-10', '2000-12-10', 982, 'Kesar', 'Kesar', 'Prime', 90, 'Luxury') //Comments
-
 ;

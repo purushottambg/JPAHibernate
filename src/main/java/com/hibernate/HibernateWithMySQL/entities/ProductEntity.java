@@ -31,19 +31,14 @@ public class ProductEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long productId;
 
-    @Column(length = 60)
     private String prodName;
 
-    @Column
     private String productCat;
 
-    @Column
     private int quantity;
 
-    @Column
     private String type;
 
-    @Column
     private BigDecimal price;
 
     @Column

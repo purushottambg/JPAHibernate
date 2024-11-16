@@ -7,9 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
+<<<<<<< HEAD
+import java.util.List;
+=======
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+>>>>>>> EmployeeTableCreation
 
 
 @SpringBootTest
@@ -41,6 +45,8 @@ class HibernateWithMySqlApplicationTests {
 		List<ProductEntity>  entities = productRepository.findAll();
 		System.out.println(entities);
 	}
+<<<<<<< HEAD
+=======
 
 	@Test
 	void getRepo1(){
@@ -77,4 +83,5 @@ class HibernateWithMySqlApplicationTests {
 		Optional<ProductEntity> specificData = productRepository.findByproductId(Long.valueOf(23));
 		specificData.ifPresent(System.out::println);  //will check if present, and print if it presents
 	}
+>>>>>>> EmployeeTableCreation
 }
