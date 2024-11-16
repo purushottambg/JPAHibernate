@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
+
 @Table(name = "EmployeeTable")
 @Data
 @AllArgsConstructor
@@ -19,7 +22,7 @@ public class EmployeeEntity {
     private String name;
 
     @Column
-    private DepartmentEntity department;
+    private List<DepartmentEntity> department;
 
     @Column
     private String departmentDesc;

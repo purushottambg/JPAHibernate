@@ -14,12 +14,13 @@ import org.hibernate.mapping.List;
 public class DepartmentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long DepartmentId;
+    private Long departmentId;
 
     @Column
     private String title;
 
-    @Column
+    @OneToOne
+    @JoinColumn(name = "manager", referencedColumnName = "empID")
     private EmployeeEntity manger;
 
     @Column
