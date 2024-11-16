@@ -8,7 +8,5 @@ public class HibernateWithMySqlApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(HibernateWithMySqlApplication.class, args);
-
 	}
-
 }

@@ -25,25 +25,19 @@ import java.time.LocalDateTime;
 public class ProductEntity {
 
     @CreationTimestamp
-    private LocalDateTime RegisteredAt;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long productId;
 
-    @Column(length = 20, nullable = false)
     private String prodName;
 
-    @Column(nullable = false)
     private String productCat;
 
-    @Column(nullable = false)
     private int quantity;
 
-    @Column(nullable = false)
     private String type;
 
-    @Column(nullable = false)
     private BigDecimal price;
 
     @Column
