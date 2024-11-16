@@ -5,26 +5,23 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
-
-@Table(name = "EmployeeTable")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
+@Table(name = "employees")
 public class EmployeeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long empID;
 
-    @Column
+    @Column(nullable = false)
     private String name;
 
-    @Column
-    private List<DepartmentEntity> department;
-
-    @Column
+    @Column(nullable = true)
     private String departmentDesc;
 
+    @ManyToOne
+    @JoinColumn(name = "department_id", nullable = false) // Foreign key column
+    private DepartmentEntity department;
 }

@@ -4,25 +4,22 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.mapping.List;
 
-@Entity
+import java.util.List;
+
 @Data
-@Table(name = "DepartmentTable")
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "departments")
 public class DepartmentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long departmentId;
+    private Long deptID;
 
-    @Column
-    private String title;
+    @Column(nullable = false, unique = true)
+    private String name;
 
-    @OneToOne
-    @JoinColumn(name = "manager", referencedColumnName = "empID")
-    private EmployeeEntity manger;
-
-    @Column
-    private EmployeeEntity workers;
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<EmployeeEntity> employees;
 }
