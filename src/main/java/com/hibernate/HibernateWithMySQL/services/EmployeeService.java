@@ -12,11 +12,13 @@ public class EmployeeService {
         this.employeeRepository=employeeRepository;
     }
 
-    public EmployeeEntity createNewEmployee(EmployeeEntity employeeEntity){ //Create New Employee
+    public EmployeeEntity createNewEmployee(EmployeeEntity employeeEntity){         //Create New Employee
         return employeeRepository.save(employeeEntity);
     }
 
-    public EmployeeEntity findEmployee(Long empId){ //Find The new Employee
+    public EmployeeEntity findEmployeeById(Long empId){
         return employeeRepository.findById(empId).orElse(null);
     }
+
+
 }

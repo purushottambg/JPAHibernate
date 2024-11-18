@@ -15,5 +15,7 @@ public class DepartmentService {
     }
 
 
-
+    public DepartmentEntity createNewDepartment(DepartmentEntity departmentEntity) { //This is the service which can process the data
+        return departmentRepository.save(departmentEntity);
+    }
 }

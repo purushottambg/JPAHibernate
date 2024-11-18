@@ -19,4 +19,5 @@ public class DepartmentController {
     public DepartmentEntity createNewDepartment(@RequestBody DepartmentEntity departmentEntity){
          return departmentService.createNewDepartment(departmentEntity);
     }
+
 }
