@@ -18,4 +18,8 @@ public class DepartmentService {
     public DepartmentEntity createNewDepartment(DepartmentEntity departmentEntity) { //This is the service which can process the data
         return departmentRepository.save(departmentEntity);
     }
+
+    public DepartmentEntity findDepartmentById(Long deptId){    //ShowDepartment details by ID
+        return departmentRepository.findById(deptId).orElse(null);
+    }
 }

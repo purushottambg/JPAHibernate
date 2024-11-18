@@ -12,13 +12,14 @@ public class EmployeeService {
         this.employeeRepository=employeeRepository;
     }
 
+    public EmployeeEntity findEmployeeById(Long empId){         //find existing employee by id
+        return employeeRepository.findById(empId).orElse(null);
+    }
+
     public EmployeeEntity createNewEmployee(EmployeeEntity employeeEntity){         //Create New Employee
         return employeeRepository.save(employeeEntity);
     }
 
-    public EmployeeEntity findEmployeeById(Long empId){
-        return employeeRepository.findById(empId).orElse(null);
-    }
 
 
 }

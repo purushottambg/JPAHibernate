@@ -7,12 +7,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path = "/")
+@RequestMapping(path = "/departments")
 public class DepartmentController {
     private final DepartmentService departmentService;  //Dependency Injection
 
     public DepartmentController(DepartmentService departmentService){
         this.departmentService=departmentService;
+    }
+
+    @GetMapping(path = "/welcome")
+    public String greetingsPage(){
+        return "Hello Visitor, You're welcome to the Puru's Java World!!";
+    }
+
+    @GetMapping(path = "/{deptId}")
+    public DepartmentEntity getDepartmentByID(@PathVariable Long deptId){
+        return departmentService.findDepartmentById(deptId);
     }
 
     @PostMapping

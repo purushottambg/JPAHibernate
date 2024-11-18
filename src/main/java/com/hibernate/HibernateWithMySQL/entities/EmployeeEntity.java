@@ -1,5 +1,6 @@
 package com.hibernate.HibernateWithMySQL.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,5 +29,6 @@ public class EmployeeEntity {
 
     @ManyToOne
     @JoinColumn(name = "department_id", nullable = false) // Foreign key column
+    @JsonIgnore
     private DepartmentEntity department;
 }
