@@ -18,7 +18,10 @@ public class DepartmentEntity {
     private Long deptID;
 
     @Column(nullable = false, unique = true)
-    private String name;
+    private String departmentName;
+
+    @Column(nullable = true)
+    private String departmentDesc;
 
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<EmployeeEntity> employees;

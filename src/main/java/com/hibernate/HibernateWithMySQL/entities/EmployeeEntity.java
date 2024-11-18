@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,8 +20,11 @@ public class EmployeeEntity {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = true)
-    private String departmentDesc;
+    @Column(nullable = false)
+    private Integer contact;
+
+    @Column(nullable = false)
+    private int salary;
 
     @ManyToOne
     @JoinColumn(name = "department_id", nullable = false) // Foreign key column

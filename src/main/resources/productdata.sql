@@ -11,3 +11,18 @@ insert into HibernateWithMYSQL.product_table
 --(8, '2000-12-10', '2000-12-10', 457, 'Patti', 'Chai', 'Tea', 30, 'Grocery'),
 --(9, '2000-12-10', '2000-12-10', 982, 'Kesar', 'Kesar', 'Prime', 90, 'Luxury') //Comments
 ;
+
+
+insert into HibernateWithMYSQL.departments (deptid, department_desc, department_name) values
+(1, "this is first department", "Physics"),
+(2, "This is the second", "Chemistry"),
+(3, "This is the third", "Math")
+;
+
+
+insert into HibernateWithMYSQL.employees (empid, name, salary, contact, department_id) values
+(1, "Aniket", 34545, 7834664, 1),
+(2,"Rajesh", 876443, 43976374, 1),
+(3,"Amey", 8984, 83687532, 2),
+(4, "Shilpa", 847, 4837434,3)
+;
