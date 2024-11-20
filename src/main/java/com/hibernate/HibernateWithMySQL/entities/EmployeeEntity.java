@@ -28,7 +28,7 @@ public class EmployeeEntity {
     private int salary;
 
     @ManyToOne
-    @JoinColumn(name = "department_id", nullable = false) // Foreign key column
+    @JoinColumn(name = "department_id") // Foreign key column || you shouldn't pass the nullable parameter in this annotation
     @JsonIgnore
     private DepartmentEntity department;
 }

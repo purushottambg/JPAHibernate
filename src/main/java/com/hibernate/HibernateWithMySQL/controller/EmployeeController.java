@@ -2,7 +2,11 @@ package com.hibernate.HibernateWithMySQL.controller;
 
 import com.hibernate.HibernateWithMySQL.entities.EmployeeEntity;
 import com.hibernate.HibernateWithMySQL.services.EmployeeService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping(path = "/employees")
@@ -23,10 +27,10 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public EmployeeEntity createNewEmployee(@RequestParam EmployeeEntity employeeEntity){
-        return employeeService.createNewEmployee(employeeEntity);
+    public ResponseEntity<EmployeeEntity> createNewEmployee(@RequestBody EmployeeEntity employeeEntity){
+        if(employeeEntity.getDepartment()==null){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Department can't be null");
+        }
+        return ResponseEntity.ok(employeeService.createNewEmployee(employeeEntity));
     }
-
-
-
 }
