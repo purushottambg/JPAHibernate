@@ -4,6 +4,8 @@ import com.hibernate.HibernateWithMySQL.Repository.EmployeeRepository;
 import com.hibernate.HibernateWithMySQL.entities.EmployeeEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EmployeeService {
 
@@ -18,6 +20,10 @@ public class EmployeeService {
 
     public EmployeeEntity createNewEmployee(EmployeeEntity employeeEntity){         //Create New Employee
         return employeeRepository.save(employeeEntity);
+    }
+
+    public List<EmployeeEntity> findEmployees(){
+        return employeeRepository.findAll();
     }
 
 

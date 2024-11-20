@@ -6,6 +6,8 @@ import com.hibernate.HibernateWithMySQL.services.DepartmentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path = "/departments")
 public class DepartmentController {
@@ -23,6 +25,11 @@ public class DepartmentController {
     @GetMapping(path = "/{deptId}")
     public DepartmentEntity getDepartmentByID(@PathVariable Long deptId){
         return departmentService.findDepartmentById(deptId);
+    }
+
+    @GetMapping(path = "/all")
+    public List<DepartmentEntity> findAllDeps(){
+        return departmentService.findAllDeps();
     }
 
     @PostMapping

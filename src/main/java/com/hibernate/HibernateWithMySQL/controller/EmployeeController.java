@@ -8,6 +8,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path = "/employees")
 public class EmployeeController {
@@ -25,12 +27,16 @@ public class EmployeeController {
     public EmployeeEntity getEmployeeById(@PathVariable Long empId){
         return employeeService.findEmployeeById(empId);
     }
+    @GetMapping(path = "/all")
+    public List<EmployeeEntity> findAllEmps(){
+        return employeeService.findEmployees();
+    }
 
     @PostMapping
     public ResponseEntity<EmployeeEntity> createNewEmployee(@RequestBody EmployeeEntity employeeEntity){
         if(employeeEntity.getDepartment()==null){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Department can't be null");
         }
-        return ResponseEntity.ok(employeeService.createNewEmployee(employeeEntity));
+        return ResponseEntity.ok(employeeService.createNewEmployee(employeeService.createNewEmployee(employeeEntity)));
     }
 }

@@ -5,6 +5,8 @@ import com.hibernate.HibernateWithMySQL.Repository.EmployeeRepository;
 import com.hibernate.HibernateWithMySQL.entities.DepartmentEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DepartmentService {
     private final DepartmentRepository departmentRepository;
@@ -21,5 +23,8 @@ public class DepartmentService {
 
     public DepartmentEntity findDepartmentById(Long deptId){    //ShowDepartment details by ID
         return departmentRepository.findById(deptId).orElse(null);
+    }
+    public List<DepartmentEntity> findAllDeps(){
+        return departmentRepository.findAll();
     }
 }
