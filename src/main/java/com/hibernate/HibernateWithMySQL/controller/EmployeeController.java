@@ -33,10 +33,7 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public ResponseEntity<EmployeeEntity> createNewEmployee(@RequestBody EmployeeEntity employeeEntity){
-        if(employeeEntity.getDepartment()==null){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Department can't be null");
-        }
-        return ResponseEntity.ok(employeeService.createNewEmployee(employeeService.createNewEmployee(employeeEntity)));
+    public EmployeeEntity createNewEmployee(@RequestBody EmployeeEntity employeeEntity){
+        return employeeService.createNewEmployee(employeeEntity);
     }
 }
