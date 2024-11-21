@@ -37,4 +37,9 @@ public class DepartmentController {
          return departmentService.createNewDepartment(departmentEntity);
     }
 
+    @PutMapping(path = "/assign/{empId}/todepartment/{deptId}")
+    public DepartmentEntity assignEmployeeToDepartment(@PathVariable Long empId, @PathVariable Long deptId){
+        return departmentService.assignEmployeeToDepartment(empId, deptId);
+    }
+
 }

@@ -3,9 +3,11 @@ package com.hibernate.HibernateWithMySQL.services;
 import com.hibernate.HibernateWithMySQL.Repository.DepartmentRepository;
 import com.hibernate.HibernateWithMySQL.Repository.EmployeeRepository;
 import com.hibernate.HibernateWithMySQL.entities.DepartmentEntity;
+import com.hibernate.HibernateWithMySQL.entities.EmployeeEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DepartmentService {
@@ -26,5 +28,19 @@ public class DepartmentService {
     }
     public List<DepartmentEntity> findAllDeps(){
         return departmentRepository.findAll();
+    }
+
+    public DepartmentEntity assignEmployeeToDepartment(Long empId, Long deptId){
+        Optional<DepartmentEntity> departmentEntity =departmentRepository.findById(deptId);
+        Optional<EmployeeEntity> employeeEntity = employeeRepository.findById(empId);
+
+        return departmentEntity.flatMap(
+                department -> employeeEntity.map(employee->
+                {employee.setDepartment(department);
+                department.getEmployees().add(employee);
+                return department;
+                }
+                )
+        ).orElse(null);
     }
 }
